@@ -1,2 +1,65 @@
 devops-dataops-mlops-duke
 https://www.coursera.org/learn/devops-dataops-mlops-duke/lecture/EjrLN/what-is-continuous-integration
+
+1. development environment:
+AWS: ClounShell
+Github: Codespaces
+GCP: Cloud shell;
+Azure: cloud shell environment
+
+1.1 cloud-based dev env: easy to have all the right tools ready to use; 
+1.1.1 Github Codespaces: edit, debug, and run your repository without local cloning and setup;
+everything is primed and ready to go to test code;
+
+2. use Codespaces:
+2.1 create python virtual env, as Python is interpreted language and 
+needs to have all the packages in one directory;
+so we will not push to github repo, but to push to invisible directory inside your home directory;
+
+$ ls ~/.venv
+ls: cannot access '/home/codespace/.venv': No such file or directory
+$ virtualenv ~/.venv
+created virtual environment CPython3.10.8.final.0-64 in 1090ms
+  creator CPython3Posix(dest=/home/codespace/.venv, clear=False, no_vcs_ignore=False, global=False)
+  seeder FromAppData(download=False, pip=bundle, setuptools=bundle, wheel=bundle, via=copy, app_data_dir=/home/codespace/.local/share/virtualenv)
+    added seed packages: pip==23.1.2, setuptools==67.7.2, wheel==0.40.0
+  activators BashActivator,CShellActivator,FishActivator,NushellActivator,PowerShellActivator,PythonActivator
+@FrankGangWang ➜ /workspaces/devops-dataops-mlops-duke (main) $ ls ~/.venv
+bin  lib  pyvenv.cfg
+@FrankGangWang ➜ /workspaces/devops-dataops-mlops-duke (main) $ source ~/.venv/bin/activate
+(.venv) @FrankGangWang ➜ /workspaces/devops-dataops-mlops-duke (main) $ 
+
+$ which python
+/home/codespace/.venv/bin/python
+
+2.2 Open new terminal:
+$ which python
+/home/codespace/.python/current/bin/python
+add " source ~/.venv/bin/activate " to the end of ~/.bashrc 
+--shift g to go to the eof
+--i: add line
+--:, wq
+
+--- Create a scaffolding of a project:
+Ref to https://raw.githubusercontent.com/noahgift/github-actions-pytest/master/Makefile
+1. copy ref Makefile
+2. make space tab: auto-complete as:
+$ make 
+all      format   install  lint     test     
+3. add: pytest into requirements.txt
+4. $make install
+5. pytest --help
+
+6. ipython
+from hello import more_hello
+more_hello()
+
+
+-- checklist of best practice: linting + (formating with Black)
+
+-- Black
+Black is the uncompromising Python code formatter. By using it, you agree to cede control over minutiae
+ of hand-formatting. In return, Black gives you speed, determinism, and freedom from pycodestyle 
+ nagging about formatting. You will save time and mental energy for more important matters.
+
+
